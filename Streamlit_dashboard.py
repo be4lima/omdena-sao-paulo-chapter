@@ -22,10 +22,6 @@ l3=df_ptl[df_ptl['line']==3]
 l4=df_ptl[df_ptl['line']==4]
 l5=df_ptl[df_ptl['line']==5]
 
-df_ptl.set_index('year_month', inplace=True)
-
-df_ptl.index = pd.to_datetime(df_ptl.index)
-
 # First tab of Streamlit dashboard
 with tab1:
     st.title("São Paulo Subway System")
@@ -97,8 +93,3 @@ with tab1:
 with tab2:
     st.title("São Paulo Subway System")
     st.header("A tool for modelling subway demand in São Paulo")
-
-# Plot
-df_ptl['total'].plot()
-
-# Dickey-Fuller test
