@@ -14,6 +14,11 @@ def parser(s):
 
 df_ptl = pd.read_csv('alllines_ptl_complete.csv', parse_dates=[0], index_col=0, date_parser=parser)
 
+# Filter by line
+line_choice = st.sidebar.multiselect("Select subway line", df_ptl['line'].unique())
+if line_choice:
+    df_ptl = df_ptl[df_ptl['line'].isin(line_choice)]
+
 # Splitting the data for different lines
 l1=df_ptl[df_ptl['line']==1]
 l2=df_ptl[df_ptl['line']==2]
